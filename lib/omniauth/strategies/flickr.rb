@@ -5,7 +5,7 @@ module OmniAuth
   module Strategies
 
     # An omniauth 1.0 strategy for Flickr authentication
-    # Based on http://www.flickr.com/services/api/auth.oauth.html
+    # Based on https://www.flickr.com/services/api/auth.oauth.html
     class Flickr < OmniAuth::Strategies::OAuth
 
       option :name, 'flickr'
@@ -14,7 +14,7 @@ module OmniAuth
         :access_token_path => "/services/oauth/access_token",
         :authorize_path => "/services/oauth/authorize",
         :request_token_path => "/services/oauth/request_token",
-        :site => "http://m.flickr.com"
+        :site => "https://m.flickr.com"
       }
 
       uid {
@@ -63,9 +63,9 @@ module OmniAuth
 
       def image_info
         if user_info["iconfarm"] && user_info["iconfarm"] > 0
-          "http://farm#{user_info["iconfarm"]}.static.flickr.com/#{user_info["iconserver"]}/buddyicons/#{uid}.jpg"
+          "https://farm#{user_info["iconfarm"]}.static.flickr.com/#{user_info["iconserver"]}/buddyicons/#{uid}.jpg"
         else
-          "http://www.flickr.com/images/buddyicon.gif"
+          "https://www.flickr.com/images/buddyicon.gif"
         end
       end
 
